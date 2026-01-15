@@ -1,6 +1,6 @@
 import { useState } from "react";
-// import FormInput from "../components/FormInput";
-// import Formresult from "../components/Formresult";
+import FormInput from "./../components/Forminput"
+import FormResult from "./../components/Formresult";
 import "./FormPage.css";
 
 function Entryform() {
