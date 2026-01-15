@@ -1,0 +1,43 @@
+.text {
+  text-align: center;
+  padding: 2px;
+}
+body {
+  background-color: rgb(155, 128, 122);
+  justify-content: center;
+}
+.text h1{
+    color: rgb(255, 255, 255);
+}
+.add {
+  text-align: center;
+  background: linear-gradient(to bottom, rgb(155, 128, 122), #e3dac9);
+  box-shadow: 4px 4px 8px #00000040;
+  width: 80%;
+  margin: auto;
+  line-height: 5;
+  padding: 25px;
+}
+.add1 {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  
+}
+
+.add2 input {
+  width: 90px;
+   background-color: rgb(155, 128, 122);
+   color:rgb(255, 255, 255);
+  border: none;
+  margin-right: 12px;
+  padding: 6px;
+  font-size: 18px;
+}
+button{
+  background-color: rgb(155, 128, 122);
+  color:rgb(255, 255, 255);
+  border: none;
+  font-size: 18px;
+
+}

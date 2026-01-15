@@ -1,10 +1,10 @@
 import { useState } from "react";
 import FormInput from "./../components/Forminput"
 import FormResult from "./../components/Formresult";
-import "./FormPage.css";
+import "./Entryform.css";
 
 function Entryform() {
-  const [description, setDescription] = useState("");
+  const [fullname, setFullname] = useState("");
   const [gender, setGender] = useState("");
   const [subjects, setSubjects] = useState<string[]>([]);
   const [submitted, setSubmitted] = useState(false);
@@ -17,15 +17,15 @@ function Entryform() {
   return (
     <div className="form-container">
       <form className="form-card" onSubmit={handleSubmit}>
-        <h1>Simple Form</h1>
+        <h1>Registration Form</h1>
 
         <FormInput
-          label="Description"
+          label="Full Name"
           type="text"
-          name="description"
-          placeholder="Enter description"
-          value={description}
-          onChange={setDescription}
+          name="fullname"
+          placeholder="Enter full name"
+          value={fullname}
+          onChange={setFullname}
         />
 
         <FormInput
@@ -41,7 +41,7 @@ function Entryform() {
           label="Subjects"
           type="checkbox"
           name="subjects"
-          options={["Maths", "Science", "Social", "Health", "Computer"]}
+          options={["Maths","Social", "English", "Nepali"]}
           values={subjects}
           onChange={setSubjects}
         />
@@ -50,7 +50,7 @@ function Entryform() {
 
         {submitted && (
           <FormResult
-            description={description}
+             description={fullname}
             gender={gender}
             subjects={subjects}
           />
