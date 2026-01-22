@@ -1,6 +1,6 @@
 import TodoForm from "../components/TodoForm";
 import TodoList from "../components/TodoList";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export interface Todo {
   id: number;
@@ -9,7 +9,15 @@ export interface Todo {
 }
 
 export default function Home() {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<Todo[]>(() => {
+    const savedTodos = localStorage.getItem("todos");
+    return savedTodos ? JSON.parse(savedTodos) : [];
+  });
+
+  // Save todos to localStorage whenever todos change
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = (text: string) => {
     setTodos([...todos, { id: Date.now(), text, completed: false }]);
