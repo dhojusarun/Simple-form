@@ -36,9 +36,9 @@ export default function Home() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-3xl">
-      <div className="bg-white rounded-xl shadow-lg p-8">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6">My Tasks</h1>
+    <div className="container mx-auto px-4 py-6 sm:py-8 max-w-3xl">
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 sm:p-8 transition-colors duration-300">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-4 sm:mb-6">My Tasks</h1>
         <TodoForm addTodo={addTodo} />
         <TodoList
           todos={todos}
