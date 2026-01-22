@@ -35,20 +35,29 @@ export default function Navigation() {
                         <Link
                             to="/"
                             className={`px-3 sm:px-4 py-2 rounded-lg transition-all duration-300 text-sm sm:text-base ${isActive("/")
-                                    ? "bg-white text-purple-600 shadow-md"
-                                    : "hover:bg-white/20"
+                                ? "bg-white text-purple-600 shadow-md"
+                                : "hover:bg-white/20"
                                 }`}
                         >
                             Home
                         </Link>
                         <Link
-                            to="/about"
-                            className={`px-3 sm:px-4 py-2 rounded-lg transition-all duration-300 text-sm sm:text-base ${isActive("/about")
-                                    ? "bg-white text-purple-600 shadow-md"
-                                    : "hover:bg-white/20"
+                            to="/incomplete"
+                            className={`px-3 sm:px-4 py-2 rounded-lg transition-all duration-300 text-sm sm:text-base ${isActive("/incomplete")
+                                ? "bg-white text-purple-600 shadow-md"
+                                : "hover:bg-white/20"
                                 }`}
                         >
-                            About
+                            Incomplete
+                        </Link>
+                        <Link
+                            to="/completed"
+                            className={`px-3 sm:px-4 py-2 rounded-lg transition-all duration-300 text-sm sm:text-base ${isActive("/completed")
+                                ? "bg-white text-purple-600 shadow-md"
+                                : "hover:bg-white/20"
+                                }`}
+                        >
+                            Completed
                         </Link>
                     </div>
                 </div>
