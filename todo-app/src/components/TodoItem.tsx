@@ -39,8 +39,8 @@ export default function TodoItem({ todo }: Props) {
 
   return (
     <li className="group bg-white dark:bg-gray-700 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 mb-3 p-4 border border-gray-100 dark:border-gray-600">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3 flex-1">
+      <div className="flex items-start justify-between">
+        <div className="flex items-start gap-3 flex-1 min-w-0">
           <input
             type="checkbox"
             checked={todo.completed}
@@ -58,19 +58,19 @@ export default function TodoItem({ todo }: Props) {
               className="flex-1 px-3 py-1 border border-purple-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-lg bg-white dark:bg-gray-600 text-gray-900 dark:text-gray-100"
             />
           ) : (
-            <div className="flex items-center gap-2 flex-1">
+            <div className="flex flex-wrap items-center gap-2 flex-1 min-w-0">
               <span
                 onDoubleClick={handleDoubleClick}
-                className={`cursor-pointer text-lg transition-all ${todo.completed
-                    ? "line-through text-gray-500 dark:text-gray-400"
-                    : "text-gray-900 dark:text-gray-100 hover:text-purple-600 dark:hover:text-purple-300"
+                className={`cursor-pointer text-lg transition-all break-words whitespace-normal min-w-0 ${todo.completed
+                  ? "line-through text-gray-500 dark:text-gray-400"
+                  : "text-gray-900 dark:text-gray-100 hover:text-purple-600 dark:hover:text-purple-300"
                   }`}
                 title="Double-click to edit"
               >
                 {todo.text}
               </span>
               {todo.completed && (
-                <span className="text-xs px-2 py-1 bg-emerald-100 dark:bg-emerald-600 text-emerald-900 dark:text-emerald-50 rounded-full font-bold">
+                <span className="shrink-0 text-xs px-2 py-1 bg-emerald-100 dark:bg-emerald-600 text-emerald-900 dark:text-emerald-50 rounded-full font-bold">
                   Completed
                 </span>
               )}
