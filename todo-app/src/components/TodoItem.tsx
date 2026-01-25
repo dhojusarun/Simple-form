@@ -39,8 +39,8 @@ export default function TodoItem({ todo }: Props) {
 
   return (
     <li className="group bg-white dark:bg-gray-700 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 mb-3 p-4 border border-gray-100 dark:border-gray-600">
-      <div className="flex items-start justify-between">
-        <div className="flex items-start gap-3 flex-1 min-w-0">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-3 flex-1">
           <input
             type="checkbox"
             checked={todo.completed}
