@@ -1,6 +1,5 @@
 import TodoForm from "../components/TodoForm";
 import TodoList from "../components/TodoList";
-import { useTodos } from "../hooks/useTodos";
 
 export default function Home() {
   return (

@@ -1,5 +1,6 @@
 import TodoItem from "./TodoItem";
 import { useTodos } from "../hooks/useTodos";
+import type { Todo } from "../redux/todoSlice";
 
 interface TodoListProps {
   filter?: "all" | "completed" | "incomplete";
@@ -8,7 +9,7 @@ interface TodoListProps {
 export default function TodoList({ filter = "all" }: TodoListProps) {
   const { todos } = useTodos();
 
-  const filteredTodos = todos.filter((todo) => {
+  const filteredTodos = todos.filter((todo: Todo) => {
     if (filter === "completed") return todo.completed;
     if (filter === "incomplete") return !todo.completed;
     return true;
@@ -28,7 +29,7 @@ export default function TodoList({ filter = "all" }: TodoListProps) {
 
   return (
     <ul className="space-y-0">
-      {filteredTodos.map((todo) => (
+      {filteredTodos.map((todo: Todo) => (
         <TodoItem
           key={todo.id}
           todo={todo}

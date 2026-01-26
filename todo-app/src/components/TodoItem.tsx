@@ -1,4 +1,4 @@
-import type { Todo } from "../context/TodoContext";
+import type { Todo } from "../redux/todoSlice";
 import { useState } from "react";
 import { useTodos } from "../hooks/useTodos";
 
