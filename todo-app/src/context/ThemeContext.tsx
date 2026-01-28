@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, type ReactNode, useCallback } from "react";
 
 type Theme = "light" | "dark";
 
@@ -15,13 +15,17 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         return (saved as Theme) || "light";
     });
 
-    useEffect(() => {
+    const setToLocal =useCallback(() => {
         localStorage.setItem("theme", theme);
         if (theme === "dark") {
             document.documentElement.classList.add("dark");
         } else {
             document.documentElement.classList.remove("dark");
         }
+    },[theme])
+
+    useEffect(()=>{
+        setToLocal()
     }, [theme]);
 
     const toggleTheme = () => {
