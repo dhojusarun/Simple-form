@@ -12,8 +12,15 @@
 .nav-links{
     display:flex;
     list-style:none;
-    margin:0;
     padding:25px;
     color:#fff;
     gap:20px;
+}
+.nav-links a{
+    text-decoration:none;
+    color:#00ff;
+    font-weight:bold;
+}
+.nav-links a:hover{
+    color:#fff;
 }
