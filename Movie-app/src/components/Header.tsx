@@ -5,14 +5,14 @@ function Header() {
   return (
     <>
       <nav className="navbar">
-        <h1 className="logo">Logo</h1>
+        <h1 className="logo">Smiley</h1>
         <Search/>
-        <ul className="nav-links">
+        <div className="nav-links">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/trendingmovies">Trending Movies</NavLink>
             <NavLink to="/popularmovies">Popular Movies</NavLink>
             <NavLink to="/newmovies">New Movies</NavLink>
-        </ul>
+        </div>
         </nav>
     </>
   );

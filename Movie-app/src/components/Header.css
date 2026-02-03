@@ -1,37 +1,36 @@
+.navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
 .logo{
     color:#ff0000;
     font-weight:bold;
     padding:15px;
     margin-left: 10px;
 }
-.navbar{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
 .nav-links{
     display:flex;
-    list-style:none;
     padding:25px;
     margin-right: 10px;
-    color:#fff;
+    color:#000;
     gap:20px;
 }
 .nav-links a{
     text-decoration:none;
-    color:#ff0000;
-    font-weight:bold;
+    color:#000;
+    font-size: 20px;
 }
 .nav-links a:hover{
-    color:#fff;
+    color:#ff0000;
 }
 .search-bar {
   position: relative;
-  width: 300px;
+  width: 400px;
 }
 
 .search-input {
-  width: 400px;
+  width: 500px;
   padding: 10px 12px 10px 40px; 
   border-radius: 8px;
   border: 1px solid #ccc;
