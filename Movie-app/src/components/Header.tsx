@@ -13,6 +13,7 @@ function Header() {
             <NavLink to="/popularmovies">Popular Movies</NavLink>
             <NavLink to="/newmovies">New Movies</NavLink>
         </div>
+          <button className="login-btn"><NavLink to="/login">Login</NavLink></button>
         </nav>
     </>
   );
