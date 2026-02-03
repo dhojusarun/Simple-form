@@ -3,13 +3,12 @@ function Search() {
   return (
    <div className="search-bar">
   <FaSearch className="search-icon" />
-  <input
+      <input
     type="text"
     placeholder="Search movies..."
     className="search-input"
   />
 </div>
-
   );
 }
 

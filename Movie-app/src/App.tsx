@@ -6,16 +6,21 @@ import Home from "./pages/Home";
 import NewMovies from "./pages/NewMovies";
 import PopularMovies from "./pages/PopularMovies";
 import TrendingMovies from "./pages/TrendingMovies";
+import Login from "./pages/Login";
 
 function App() {
   return (
     <div>
       <Header />
       <Routes>
+        {/* Movie available pages */}
         <Route path="/" element={<Home />} />
         <Route path="/trendingmovies" element={<TrendingMovies />} />
         <Route path="/popularmovies" element={<PopularMovies />} />
         <Route path="/newmovies" element={<NewMovies />} />
+        
+        {/* login and signup pages */}
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </div>
