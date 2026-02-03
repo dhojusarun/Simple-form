@@ -7,6 +7,7 @@ import NewMovies from "./pages/NewMovies";
 import PopularMovies from "./pages/PopularMovies";
 import TrendingMovies from "./pages/TrendingMovies";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         
         {/* login and signup pages */}
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />
     </div>

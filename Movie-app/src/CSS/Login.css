@@ -15,7 +15,8 @@
 
 /* text & password inputs */
 .input-fields input[type="text"],
-.input-fields input[type="password"] {
+.input-fields input[type="password"],
+.input-fields input[type="email"] {
   width: 100%;
   padding: 12px 14px;
   border: 1px solid #d1d5db;
