@@ -4,8 +4,7 @@ import '../CSS/Home.css';
 function Home() {
   return (
     <div className="home">
-      <h2><TrendingMovies/></h2>
-     
+      <TrendingMovies/>
     </div>
   );
 }

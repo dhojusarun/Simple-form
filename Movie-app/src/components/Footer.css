@@ -1,6 +1,5 @@
 .footer {
-  background-color: #ff0000;
-  color: #000;
+  background-color: #000;
   margin-top: 30px;
   position: relative;
   bottom: 0;
@@ -12,6 +11,7 @@
   font-size: 25px;
   margin-bottom: 15px;
   margin-top:15px;
+  text-align: center;
   color:#fff;
 
 }
@@ -29,7 +29,7 @@
   font-size: 20px;
 }
 .quicklinks a:hover {
-  color: #000;
+  color: #ff0000;
 }
 .footer p {
   text-align: center;
@@ -37,3 +37,50 @@
   font-weight: bold;
   color:#fff;
 }
+.footer-quicklinks{
+    display:flex;
+    justify-content:space-evenly;
+    margin-bottom:15px;
+}
+.social-media{
+    color:#fff;
+    display:flex;
+    gap:10px;
+    margin-bottom:15px;
+    font-size:30px;
+}
+
+.footer-text {
+  text-align: center;
+  padding: 40px 20px;
+  color: #fff;
+}
+
+.footer-text h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.footer-text input {
+  padding: 12px 14px;
+  width: 350px;
+  max-width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.footer-text button {
+  padding: 12px 18px;
+  border: none;
+  background: #ff4d4f;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
