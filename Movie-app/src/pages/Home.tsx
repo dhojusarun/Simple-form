@@ -1,5 +1,6 @@
 import '../CSS/Home.css';
 import home_image from '../assets/Images/home_image.jpg';
+import NewMovies from './NewMovies';
 import PopularMovies from './PopularMovies';
 import TrendingMovies from './TrendingMovies';
 
@@ -18,6 +19,7 @@ function Home() {
       </div>
       <TrendingMovies/>
       <PopularMovies/>
+      <NewMovies/>
     </div>
   );
 }

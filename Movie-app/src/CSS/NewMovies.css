@@ -1,0 +1,62 @@
+.home h1 {
+  color: #ffffff;
+  padding: 0 40px;
+  font-size: 28px;
+}
+/* Container for the carousel */
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 20px 0;
+}
+
+/* Horizontal scroll container */
+.carousel-container {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+}
+
+/* Movies list with two rows */
+.movies-list {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr); /* two rows */
+  grid-auto-flow: column; /* fill items column by column */
+  gap: 10px;
+}
+
+/* Individual movie card */
+.movie-card {
+  width: 150px; /* adjust as needed */
+  text-align: center;
+  flex: 0 0 auto;
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  padding: 10px;
+  color: #fff;
+  transition: transform 0.2s;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+/* Movie poster image */
+.movie-card img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+
+/* Movie title */
+.movie-card h3 {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+/* Release date */
+.movie-card p {
+  font-size: 12px;
+  color: #aaa;
+  margin: 0;
+}
