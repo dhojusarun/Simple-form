@@ -45,7 +45,7 @@ function TrendingMovies() {
                 />
                 <h3>{movie.title}</h3>
                 <p>
-                  <p>Release Date:{movie.release_date}</p></p>
+                  Release Date:{movie.release_date}</p>
               </div>
             ))}
           </div>

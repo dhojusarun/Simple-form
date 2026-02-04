@@ -4,13 +4,11 @@
   line-height: 1.5;
   background: linear-gradient(
     90deg,
-    #8E2A2A 0%,
-    #B84A4A 40%,
-    #2B0F0F 70%,
+    #8e2a2a 0%,
+    #b84a4a 40%,
+    #2b0f0f 70%,
     #000000 100%
   );
-
-  )
   padding: 20px;
 }
 .container {
@@ -26,7 +24,7 @@
   width: 1000px;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-  color:#fff;
+  color: #fff;
 }
 .text-area h1 {
   font-size: 36px;
@@ -91,7 +89,9 @@
   border-radius: 14px;
   padding: 10px;
   text-align: center;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
   cursor: pointer;
 }
 
@@ -121,4 +121,3 @@
   color: #f5c518;
   margin: 0;
 }
-
