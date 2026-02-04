@@ -45,10 +45,6 @@ function PopularMovies() {
       <div className="popular-carousel-wrapper">
         <div className="carousel-header">
           <h1>Popular Movies</h1>
-          <div className="carousel-buttons">
-            <button onClick={scrollLeft}>◀</button>
-            <button onClick={scrollRight}>▶</button>
-          </div>
         </div>
 
         <div className="carousel" ref={carouselRef}>
