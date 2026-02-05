@@ -1,0 +1,91 @@
+/* SECTION */
+.popular-home-section {
+  padding: 20px 0;
+  width: 100%;
+}
+
+/* HEADER */
+.popular-home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  padding: 0 20px;
+  color: #ffffff;
+}
+
+.popular-home-header h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+/* LOADING */
+.popular-home-loading {
+  text-align: center;
+  color: #ffffff;
+  margin: 40px 0;
+}
+
+/* CAROUSEL */
+.popular-home-carousel {
+  overflow-x: auto;              /* 🔥 enables horizontal scroll */
+  scroll-behavior: smooth;
+  padding: 0 20px;
+}
+
+.popular-home-carousel::-webkit-scrollbar {
+  display: none;                 /* hide scrollbar */
+}
+
+/* TRACK */
+.popular-home-track {
+  display: flex;                 /* 🔥 one row only */
+  gap: 16px;
+  width: max-content;            /* 🔥 allows scrolling */
+}
+
+/* MOVIE CARD */
+.popular-home-card {
+  flex: 0 0 auto;                /* prevents wrapping */
+  width: 180px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.popular-home-card:hover {
+  transform: scale(1.05);
+}
+
+/* POSTER */
+.popular-home-card img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* TITLE */
+.popular-home-card h3 {
+  font-size: 0.95rem;
+  margin-top: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* DATE */
+.popular-home-card p {
+  font-size: 0.8rem;
+  color: #bbbbbb;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+  .popular-home-card {
+    width: 140px;
+  }
+
+  .popular-home-header h1 {
+    font-size: 1.3rem;
+  }
+}
