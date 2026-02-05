@@ -1,6 +1,6 @@
 import "../CSS/Home.css";
 import { useState ,useEffect } from "react";
-import "../CSS/PopularMovies.css";
+
 function PopularMovies() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);

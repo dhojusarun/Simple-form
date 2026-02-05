@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import MovieCard from './MovieCard';
 import '../CSS/TrendingMovies.css';
+import { NavLink } from 'react-router';
 
 function TrendingMovies() {
     const [movies, setMovies] = useState([]);
@@ -31,7 +32,7 @@ function TrendingMovies() {
 
     return (
         <div className="home">
-            <h1>Trending Movies</h1>
+            <h1><NavLink to = "/trendingmovies">Trending Movies</NavLink></h1>
 
             {loading ? (
                 <p>Loading...</p>
