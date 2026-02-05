@@ -15,7 +15,7 @@ function TrendingMovies() {
     };
 
     useEffect(() => {
-        fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
+        fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', options)
             .then(res => res.json())
             .then(data => {
                 setMovies(data.results);
