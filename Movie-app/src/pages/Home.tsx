@@ -19,7 +19,6 @@ function Home() {
           <img src={home_image} alt="Home Page" />
         </div>
       </div>
-      
     </div>
   );
 }

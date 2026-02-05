@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import TrendingMovies from "./pages/TrendingMovies";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         {/* Movie available pages */}
         <Route path="/" element={<Home />} />
+        <Route path="/trendingmovies" element={<TrendingMovies />} />
         
         {/* login and signup pages */}
         <Route path="/login" element={<Login />} />

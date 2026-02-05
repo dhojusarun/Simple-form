@@ -1,76 +1,59 @@
-/* TRENDING SECTION */
-.trending-home-section {
-  padding: 20px 0;
-  width: 100%;
-}
-
-/* HEADER */
-.trending-home-header {
-  padding: 0 20px;
-  margin-bottom: 14px;
-}
-
-.trending-home-header h1 {
-  font-size: 1.6rem;
-  font-weight: 600;
-}
-
-.trending-home-header a {
-  text-decoration: none;
+.home h1{
   color: #ffffff;
+  margin-top: 20px;
 }
-
-/* CAROUSEL */
-.trending-home-carousel {
-  overflow-x: auto;           
+/* Carousel container */
+.trending-movies-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
   scroll-behavior: smooth;
-  padding: 0 20px;
+  padding-bottom: 1rem;
 }
 
-.trending-home-carousel::-webkit-scrollbar {
-  display: none;               
+/* Hide scrollbar but allow scrolling */
+.trending-movies-container::-webkit-scrollbar {
+  display: none;
+}
+.trending-movies-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
-/* TRACK */
-.trending-home-track {
-  display: flex;            
-  gap: 16px;
-  width: max-content;          
-}
-
-/* MOVIE CARD */
-.trending-home-card {
-  flex: 0 0 auto;              /* prevents wrapping */
-  width: 180px;
-  color: #ffffff;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.trending-home-card:hover {
-  transform: scale(1.05);
-}
-
-/* POSTER IMAGE */
-.trending-home-card img {
-  width: 100%;
-  border-radius: 12px;
-  object-fit: cover;
-}
-
-/* TITLE */
-.trending-home-card h3 {
-  font-size: 0.95rem;
-  margin-top: 8px;
-  white-space: nowrap;
+/* Each movie card */
+.movie-card {
+  min-width: 200px;
+  flex: 0 0 auto;
+  background-color: #fff;
+  border-radius: 10px;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* RELEASE DATE */
-.trending-home-card p {
-  font-size: 0.8rem;
-  color: #bbbbbb;
-  margin-top: 4px;
+.movie-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
 }
 
+/* Movie title */
+.movie-card h3 {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+/* Release date */
+.movie-card p {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 0.5rem;
+}
+
+/* Hover effect */
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+}
