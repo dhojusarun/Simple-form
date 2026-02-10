@@ -13,6 +13,7 @@ function Header() {
           <NavLink to="/trendingmovies">Trending Movies</NavLink>
           <NavLink to="/popularmovies">Popular Movies</NavLink>
           <NavLink to="/upcomingmovies">Upcoming Movies</NavLink>
+          <NavLink to="/favorites">Favorites</NavLink>
         </div>
         <NavLink to="/login" className="login-btn">Login</NavLink>
       </nav>

@@ -8,6 +8,7 @@ import TrendingMovies from "./pages/TrendingMovies";
 import PopularMovies from "./pages/PopularMovies";
 import UpcomingMovies from "./pages/UpcomingMovies";
 import MovieDetails from "./pages/MovieDetails";
+import Favorites from "./pages/Favorites";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/popularmovies" element={<PopularMovies />} />
         <Route path="/upcomingmovies" element={<UpcomingMovies />} />
         <Route path="/movie/:id" element={<MovieDetails />} />
+        <Route path="/favorites" element={<Favorites />} />
 
         {/* login and signup pages */}
         <Route path="/login" element={<Login />} />

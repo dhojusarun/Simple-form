@@ -1,13 +1,33 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import { useFavorites } from '../context/FavoritesContext';
 import '../CSS/Home.css'; // Reusing Home.css for layout consistency
 
 function MovieDetails() {
     const { id } = useParams();
+    const movie_id = id ? parseInt(id) : null;
     const navigate = useNavigate();
     const [movie, setMovie] = useState(null);
     const [loading, setLoading] = useState(true);
+    const { isFavorite, addFavorite, removeFavorite } = useFavorites();
     const BEARER_TOKEN = import.meta.env.VITE_TMDB_TOKEN;
+
+    const favorite = movie_id ? isFavorite(movie_id) : false;
+
+    const onFavoriteClick = () => {
+        if (!movie || !movie_id) return;
+        if (favorite) {
+            removeFavorite(movie_id);
+        } else {
+            addFavorite({
+                id: movie_id,
+                title: movie.title || movie.name,
+                poster_path: movie.poster_path,
+                release_date: movie.release_date || movie.first_air_date
+            });
+        }
+    };
 
     const options = {
         method: 'GET',
@@ -66,7 +86,12 @@ function MovieDetails() {
                     />
                 )}
                 <div style={{ flex: 1, minWidth: '300px' }}>
-                    <h1 style={{ margin: '0 0 10px 0' }}>{title}</h1>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                        <h1 style={{ margin: '0' }}>{title}</h1>
+                        <div onClick={onFavoriteClick} style={{ cursor: 'pointer' }}>
+                            {favorite ? <FaHeart color="red" size={32} /> : <FaRegHeart color="white" size={32} />}
+                        </div>
+                    </div>
                     {movie.tagline && <p style={{ fontSize: '1.2rem', color: '#999' }}>{movie.tagline}</p>}
                     <div style={{ margin: '20px 0' }}>
                         <strong>Release Date:</strong> {releaseDate || 'N/A'}
