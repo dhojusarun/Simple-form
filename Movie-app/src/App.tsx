@@ -11,6 +11,7 @@ import PopularMovies from "./pages/PopularMovies";
 import UpcomingMovies from "./pages/UpcomingMovies";
 import MovieDetails from "./pages/MovieDetails";
 import Favorites from "./pages/Favorites";
+import SearchResults from "./pages/SearchResults";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/search" element={<SearchResults />} />
       </Routes>
       <Footer />
     </div>
