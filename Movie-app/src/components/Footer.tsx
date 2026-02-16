@@ -16,7 +16,7 @@ function Footer() {
                         <NavLink to="/">Home</NavLink>
                         <NavLink to="/trendingmovies">Trending Movies</NavLink>
                         <NavLink to="/popularmovies">Popular Movies</NavLink>
-                        <NavLink to="/newmovies">New Movies</NavLink>
+                        <NavLink to="/upcomingmovies">Upcoming Movies</NavLink>
                     </div>
                     <div className="footer-text">
                         <h1>Get New Movies and Updates</h1>

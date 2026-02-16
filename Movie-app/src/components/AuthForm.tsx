@@ -20,8 +20,9 @@ function AuthForm({ type }: AuthFormProps) {
   });
   const [error, setError] = useState("");
 
-  // Flag for successful signup
+  // Flags for redirection and messages
   const signupSuccess = location.state?.signupSuccess;
+  const loginRequired = location.state?.requireLogin;
   const from = location.state?.from?.pathname || "/";
 
   const handleChange = (e: any) => {
@@ -72,6 +73,12 @@ function AuthForm({ type }: AuthFormProps) {
         {signupSuccess && (
           <p style={{ color: 'lightgreen', marginBottom: '15px', textAlign: 'center' }}>
             Account created successfully! Please log in.
+          </p>
+        )}
+
+        {loginRequired && !signupSuccess && (
+          <p style={{ color: '#ff4d4f', border: '1px solid #ff4d4f', padding: '10px', borderRadius: '8px', marginBottom: '15px', textAlign: 'center', backgroundColor: 'rgba(255, 77, 79, 0.1)' }}>
+            Please log in to your account to view this page.
           </p>
         )}
 

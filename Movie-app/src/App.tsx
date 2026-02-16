@@ -19,11 +19,39 @@ function App() {
     <div>
       <Header />
       <Routes>
-        {/* Movie available pages */}
-        <Route path="/" element={<Home />} />
-        <Route path="/trendingmovies" element={<TrendingMovies />} />
-        <Route path="/popularmovies" element={<PopularMovies />} />
-        <Route path="/upcomingmovies" element={<UpcomingMovies />} />
+        {/* Protected movie pages */}
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/trendingmovies"
+          element={
+            <ProtectedRoute>
+              <TrendingMovies />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/popularmovies"
+          element={
+            <ProtectedRoute>
+              <PopularMovies />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/upcomingmovies"
+          element={
+            <ProtectedRoute>
+              <UpcomingMovies />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/movie/:id"
           element={
@@ -40,13 +68,20 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/search"
+          element={
+            <ProtectedRoute>
+              <SearchResults />
+            </ProtectedRoute>
+          }
+        />
 
-        {/* login and signup pages */}
+        {/* Public login and signup pages */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
-        <Route path="/search" element={<SearchResults />} />
       </Routes>
       <Footer />
     </div>
