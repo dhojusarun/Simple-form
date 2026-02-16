@@ -129,7 +129,9 @@ function AuthForm({ type }: AuthFormProps) {
 
           <div className="options">
             <p><input type="checkbox" /> Remember me</p>
-            <p>Forgot your password?</p>
+            <NavLink to="/forgot-password" style={{ color: 'white', textDecoration: 'none', fontSize: '16px', marginTop: '5px' }}>
+              Forgot your password?
+            </NavLink>
           </div>
 
           <div className="button">
