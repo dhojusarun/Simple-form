@@ -1,18 +1,21 @@
-import React from "react";
+import * as React from "react";
+const { useCallback } = React;
 import "./Header.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import Search from "./input fields/Search";
-import { useAuth } from "../context/AuthContext";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { logout } from "../redux/slices/authSlice";
 import { FaUserCircle } from "react-icons/fa";
 
 function Header() {
-  const { isLoggedIn, logout } = useAuth();
+  const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    logout();
+  const handleLogout = useCallback(() => {
+    dispatch(logout());
     navigate("/");
-  };
+  }, [dispatch, navigate]);
 
   return (
     <>

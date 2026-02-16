@@ -1,9 +1,9 @@
 import MovieCard from '../components/MovieCard';
-import { useFavorites } from '../context/FavoritesContext';
+import { useAppSelector } from '../redux/hooks';
 import '../CSS/PopularMovies.css'; // Reusing container styles
 
 function Favorites() {
-    const { favorites } = useFavorites();
+    const favorites = useAppSelector((state) => state.favorites.favorites);
 
     return (
         <div className="home" style={{ padding: '20px' }}>
@@ -19,7 +19,7 @@ function Favorites() {
                         gap: '20px'
                     }}
                 >
-                    {favorites.map(movie => (
+                    {favorites.map((movie: any) => (
                         <MovieCard
                             key={movie.id}
                             id={movie.id}

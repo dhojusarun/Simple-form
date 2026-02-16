@@ -1,40 +1,21 @@
-import { useEffect, useState } from 'react';
 import MovieCard from '../components/MovieCard';
+import { useGetUpcomingMoviesQuery } from '../redux/services/tmdbApi';
 
 function UpcomingMovies() {
-    const [movies, setMovies] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const BEARER_TOKEN = import.meta.env.VITE_TMDB_TOKEN;
-    const options = {
-        method: 'GET',
-        headers: {
-            accept: 'application/json',
-            Authorization: `Bearer ${BEARER_TOKEN}`
-        }
-    };
-
-    useEffect(() => {
-        fetch('https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1', options)
-            .then(res => res.json())
-            .then(data => {
-                setMovies(data.results);
-                setLoading(false);
-            })
-            .catch(err => {
-                console.error('Error fetching upcoming movies:', err);
-                setLoading(false);
-            });
-    }, []);
+    const { data, isLoading, error } = useGetUpcomingMoviesQuery();
+    const movies = data?.results || [];
 
     return (
         <div className="home">
             <h1>Upcoming Movies</h1>
 
-            {loading ? (
+            {isLoading ? (
                 <p>Loading...</p>
+            ) : error ? (
+                <p>Error loading upcoming movies.</p>
             ) : (
                 <div className="upcoming-movies-container">
-                    {movies.map(movie => (
+                    {movies.map((movie: any) => (
                         <MovieCard
                             key={movie.id}
                             id={movie.id}

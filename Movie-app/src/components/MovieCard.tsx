@@ -1,20 +1,23 @@
+import { useCallback, MouseEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
-import { useFavorites } from '../context/FavoritesContext';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import { addFavorite, removeFavorite } from '../redux/slices/favoritesSlice';
 
-function MovieCard({ id, title, poster_path, release_date }) {
+function MovieCard({ id, title, poster_path, release_date }: any) {
     const navigate = useNavigate();
-    const { isFavorite, addFavorite, removeFavorite } = useFavorites();
-    const favorite = isFavorite(id);
+    const dispatch = useAppDispatch();
+    const favorites = useAppSelector((state) => state.favorites.favorites);
+    const favorite = favorites.some((m) => m.id === id);
 
-    const onFavoriteClick = (e) => {
+    const onFavoriteClick = useCallback((e: MouseEvent) => {
         e.stopPropagation();
         if (favorite) {
-            removeFavorite(id);
+            dispatch(removeFavorite(id));
         } else {
-            addFavorite({ id, title, poster_path, release_date });
+            dispatch(addFavorite({ id, title, poster_path, release_date }));
         }
-    };
+    }, [dispatch, favorite, id, title, poster_path, release_date]);
 
     return (
         <div

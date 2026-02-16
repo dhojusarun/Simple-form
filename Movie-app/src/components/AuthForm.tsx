@@ -1,7 +1,7 @@
-import * as React from "react";
-const { useState } = React;
+import { useState, useCallback, ChangeEvent, FormEvent } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useAppDispatch } from "../redux/hooks";
+import { login } from "../redux/slices/authSlice";
 import "../CSS/Login.css";
 
 interface AuthFormProps {
@@ -9,7 +9,7 @@ interface AuthFormProps {
 }
 
 function AuthForm({ type }: AuthFormProps) {
-  const { login } = useAuth();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -25,14 +25,14 @@ function AuthForm({ type }: AuthFormProps) {
   const loginRequired = location.state?.requireLogin;
   const from = location.state?.from?.pathname || "/";
 
-  const handleChange = (e: any) => {
+  const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
     // Map ID to state keys
     const key = id === "Full name" ? "fullName" : id.toLowerCase();
     setFormData(prev => ({ ...prev, [key]: value }));
-  };
+  }, []);
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = useCallback((e: FormEvent) => {
     e.preventDefault();
     setError("");
 
@@ -57,13 +57,13 @@ function AuthForm({ type }: AuthFormProps) {
       const user = users[formData.fullName];
 
       if (user && user.password === formData.password) {
-        login({ fullName: formData.fullName, email: user.email });
+        dispatch(login({ fullName: formData.fullName, email: user.email }));
         navigate(from, { replace: true });
       } else {
         setError("Invalid name or password.");
       }
     }
-  };
+  }, [type, formData, navigate, from, dispatch]);
 
   return (
     <div className="login-page">

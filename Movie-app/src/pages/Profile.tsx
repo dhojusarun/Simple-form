@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { useAuth } from '../context/AuthContext';
+import React from 'react';
+import { useAppSelector } from '../redux/hooks';
 import '../CSS/TrendingMovies.css'; // Reusing some base styles for layout
 
 function Profile() {
-    const { userData } = useAuth();
+    const userData = useAppSelector((state) => state.auth.userData);
 
     if (!userData) {
         return (

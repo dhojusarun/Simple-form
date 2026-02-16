@@ -1,76 +1,39 @@
-import { useEffect, useState } from 'react';
+import * as React from 'react';
+const { useCallback } = React;
 import { useParams, useNavigate } from 'react-router-dom';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
-import { useFavorites } from '../context/FavoritesContext';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import { addFavorite, removeFavorite } from '../redux/slices/favoritesSlice';
+import { useGetMovieDetailsQuery } from '../redux/services/tmdbApi';
 import '../CSS/Home.css'; // Reusing Home.css for layout consistency
 
 function MovieDetails() {
     const { id } = useParams();
     const movie_id = id ? parseInt(id) : null;
     const navigate = useNavigate();
-    const [movie, setMovie] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const { isFavorite, addFavorite, removeFavorite } = useFavorites();
-    const BEARER_TOKEN = import.meta.env.VITE_TMDB_TOKEN;
+    const dispatch = useAppDispatch();
 
-    const favorite = movie_id ? isFavorite(movie_id) : false;
+    const { data: movie, isLoading, error } = useGetMovieDetailsQuery(id || '');
 
-    const onFavoriteClick = () => {
+    const favorites = useAppSelector((state) => state.favorites.favorites);
+    const favorite = movie_id ? favorites.some((m) => m.id === movie_id) : false;
+
+    const onFavoriteClick = useCallback(() => {
         if (!movie || !movie_id) return;
         if (favorite) {
-            removeFavorite(movie_id);
+            dispatch(removeFavorite(movie_id));
         } else {
-            addFavorite({
+            dispatch(addFavorite({
                 id: movie_id,
                 title: movie.title || movie.name,
                 poster_path: movie.poster_path,
                 release_date: movie.release_date || movie.first_air_date
-            });
+            }));
         }
-    };
+    }, [dispatch, favorite, movie, movie_id]);
 
-    const options = {
-        method: 'GET',
-        headers: {
-            accept: 'application/json',
-            Authorization: `Bearer ${BEARER_TOKEN}`
-        }
-    };
-
-    useEffect(() => {
-        if (!id) return;
-        setLoading(true);
-
-        const fetchDetails = async () => {
-            try {
-                // Try fetching as a movie first
-                let res = await fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options);
-                let data = await res.json();
-
-                if (data.success === false || res.status === 404) {
-                    // If movie fails, try fetching as a TV show
-                    res = await fetch(`https://api.themoviedb.org/3/tv/${id}?language=en-US`, options);
-                    data = await res.json();
-                }
-
-                if (data.success === false || res.status === 404) {
-                    setMovie(null);
-                } else {
-                    setMovie(data);
-                }
-            } catch (err) {
-                console.error('Error fetching details:', err);
-                setMovie(null);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchDetails();
-    }, [id]);
-
-    if (loading) return <div className="home"><p>Loading...</p></div>;
-    if (!movie) return <div className="home"><p>Movie or TV show not found.</p></div>;
+    if (isLoading) return <div className="home"><p>Loading...</p></div>;
+    if (error || !movie) return <div className="home"><p>Movie or TV show not found.</p></div>;
 
     const title = movie.title || movie.name;
     const releaseDate = movie.release_date || movie.first_air_date;
@@ -105,7 +68,7 @@ function MovieDetails() {
                     </div>
                     {movie.genres && movie.genres.length > 0 && (
                         <div style={{ margin: '20px 0' }}>
-                            <strong>Genres:</strong> {movie.genres.map(g => g.name).join(', ')}
+                            <strong>Genres:</strong> {movie.genres.map((g: any) => g.name).join(', ')}
                         </div>
                     )}
                 </div>
