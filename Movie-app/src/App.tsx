@@ -20,14 +20,7 @@ function App() {
       <Header />
       <Routes>
         {/* Protected movie pages */}
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/" element={<Home />} />
         <Route
           path="/trendingmovies"
           element={
