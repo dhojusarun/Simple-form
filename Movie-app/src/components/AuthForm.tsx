@@ -57,7 +57,7 @@ function AuthForm({ type }: AuthFormProps) {
       const user = users[formData.fullName];
 
       if (user && user.password === formData.password) {
-        login();
+        login({ fullName: formData.fullName, email: user.email });
         navigate(from, { replace: true });
       } else {
         setError("Invalid name or password.");

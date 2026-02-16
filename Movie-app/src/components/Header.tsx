@@ -3,6 +3,7 @@ import "./Header.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import Search from "./input fields/Search";
 import { useAuth } from "../context/AuthContext";
+import { FaUserCircle } from "react-icons/fa";
 
 function Header() {
   const { isLoggedIn, logout } = useAuth();
@@ -24,6 +25,11 @@ function Header() {
           <NavLink to="/popularmovies">Popular Movies</NavLink>
           <NavLink to="/upcomingmovies">Upcoming Movies</NavLink>
           <NavLink to="/favorites">Favorites</NavLink>
+          {isLoggedIn && (
+            <NavLink to="/profile" className="profile-icon-link">
+              <FaUserCircle />
+            </NavLink>
+          )}
         </div>
         {isLoggedIn ? (
           <button onClick={handleLogout} className="login-btn">Logout</button>

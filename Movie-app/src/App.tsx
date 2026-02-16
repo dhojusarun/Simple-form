@@ -12,6 +12,7 @@ import UpcomingMovies from "./pages/UpcomingMovies";
 import MovieDetails from "./pages/MovieDetails";
 import Favorites from "./pages/Favorites";
 import SearchResults from "./pages/SearchResults";
+import Profile from "./pages/Profile";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
 function App() {
@@ -66,6 +67,15 @@ function App() {
           element={
             <ProtectedRoute>
               <SearchResults />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
             </ProtectedRoute>
           }
         />
